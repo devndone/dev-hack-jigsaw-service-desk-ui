@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dev Hack Service Desk UI</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <div class="container">
+      <div class="page-header">
+        {{#link-to "index"}}
+          <h1>
+            Dev Hack Service Desk UI<small> with Ember.js, Spring Data Rest, Spring Data JPA, Twilio Web Servive API Partner</small>
+          </h1>
+        {{/link-to}}
+      </div>
+      <div class="row">
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="customers">
+    {{#each model}}
+    <div></div>
+    <div class="col-md-4">
+      <div class="list-group">
+            {{name}}
+            <span class="pointer glyphicon glyphicon-chevron-right"></span>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="list-group">
+            {{mobile}}
+            <span class="pointer glyphicon glyphicon-chevron-right"></span>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="list-group">
+            {{tickets}}
+            <span class="pointer glyphicon glyphicon-chevron-right"></span>
+      </div>
+    </div><div class="col-md-4">
+    <div class="list-group">
+      <div class="list-group-item">
+        {{input type="text" placeholder="Add New Service Request" value=newTicket}}
+        <button class="btn btn-primary" {{action "createTicket"}}
+          {{bind-attr disabled=disabled}}>Add</button>
+      </div>
+    {{/each}}
+  </script>
+
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember-1.0.0.js"></script>
+  <script src="js/libs/bootstrap.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
